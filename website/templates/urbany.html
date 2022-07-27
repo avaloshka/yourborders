@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Урбаны- очереди на границе
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        
+      </div>
+      <div class="col-sm-8">
+
+                    </br>
+            <div class="card text-dark bg-light mb-3" style="max-width: 40rem; width: 400">
+
+              <!-- inserts -->
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Пункт
+                    <span class="badge bg-primary rounded-pill">{{ obj.location }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Машин
+                    <span class="badge bg-primary rounded-pill">{{ obj.cars }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Грузовых
+                    <span class="badge bg-primary rounded-pill">{{ obj.lorries }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Автобусов
+                    <span class="badge bg-primary rounded-pill">{{ obj.buses }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Проверено в
+                    <span class="badge bg-primary rounded-pill">{{ obj.time }}</span>
+                  </li>
+                </ul>
+            </div>
+
+
+            <div class="card text-dark bg-light mb-3" style="max-width: 40rem;">
+              <div class="card-header">{{ obj.location }}</div>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{ obj.text }}</p>
+              </div>
+            </div>
+
+            
+      </div>
+      <div class="col-sm-2">
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}

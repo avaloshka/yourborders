@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock %}
+
+
+
+{% block content %}
+
+		
+
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-sm-2">
+	      </div>
+	      <div class="col-sm-8">
+	      	{% if message %}
+	        	{{ message }}
+	        {% endif %}
+
+
+
+	      	{% if list_all_locations %}
+	      		Узнать номер очереди можно только в пунктах, перечисленных ниже.<br> Данные актуальны в момент поиска.<br>
+	        	<p>Если данные не отображаются- номер введен не верно или пропускной пункт выбран не верно!</p>
+
+
+		      	{% for item in list_all_locations %}
+
+		      	---------------------------------------------------
+		      	<br>
+		      	<br>
+				<form action="{% url 'uznat_svou_ochered' %}" method="POST">{% csrf_token %}
+				  <div class="mb-3">
+				    <label for="exampleInputEmail1" class="form-label"><b>{{ item.name }}</b></label>
+				    <input type="text" name='reg' class="form-control" placeholder="Введите номер своего транспортного средства, если вы в этом пропускном пункте">
+				    <input type="hidden" name='location_id' value="{{ item.id }}">
+				  </div>
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				{% endfor %}
+
+
+
+	        {% endif %}
+
+	        {% if item %}
+
+	        	<table class="table">
+				  <thead>
+
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>Ваш номер в очереди</td>
+				      <td>{{ nomer }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>Регистрационный номер</td>
+				      <td>{{ regnum }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>Статус</td>
+				      <td>{{ status }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">4</th>
+				      <td>Тип очереди</td>
+				      <td>{{ type_queue }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">5</th>
+				      <td>Дата регистрации</td>
+				      <td>{{ registration_date }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">6</th>
+				      <td>Регистрация изменена</td>
+				      <td>{{ changed_date }}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">7</th>
+				      <td>Пункт пропуска</td>
+				      <td>{{ location }},<br> {{ address }},<br> {{ phone }}</td>
+				    </tr>
+
+				  </tbody>
+				</table>
+
+	        {% endif %}
+
+
+
+
+	      </div>
+	      <div class="col-sm-2">
+	        	      			      	
+
+	      </div>
+			
+	    </div>
+	  </div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+	Очереди на границе Республики Беларусь
+	
+{% endblock %}
+
+
+{% block content %}
+
+	
+	<div class="container">
+	  <div class="row">
+	    <div class="col-sm-2">
+	      
+	    </div>
+	    <div class="col-sm-8">
+	    	<p style="color: red">Информация может собираться 10 секунд</p>
+    		<table class="table table-bordered border-primary" width="400">
+    			<thead>
+	    			<tr>
+	    				<td><h3>Пункт</h3></td>
+						<td><h3>Машин</h3></td>
+						<td><h3>Автобусов</h3></td>
+						<td><h3>Грузовых</h3></td>
+						<!-- <td><h3>Проверено:</h3></td>
+						<td><h3>DateTimeField</h3></td> -->
+					</tr>
+    			</thead>
+    			<tbody>
+    				{% if message %}
+    					<h1>{{ message }}</h1>
+    				{% endif %}
+
+
+    				{% if table %}
+    					{% for row in table %}
+						<tr>
+								{% csrf_token %}
+							<td><h5>{{ row.location }}</h5></td>
+							<td><h5>{{ row.cars }}</h5></td>
+							<td><h5>{{ row.buses }}</h5></td>
+							<td><h5>{{ row.lorries }}</h5></td>
+							<!-- <td style="text-align: right;"><h5>{{ row.time }}</h4></td>
+							<td style="text-align: right;"><h5>{{ row.created }}</h4></td> -->
+						</tr>
+						{% endfor %}
+    				{% endif %}
+
+
+    			</tbody>
+			</table>	      
+	    </div>
+	    <div class="col-sm-2">
+	    	<p style="color: red;">Проверить:</p>
+	    	
+	    		
+	    		<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                Пункты пропуска
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'grigorov' %}">Григоровщина</a></li>
+                <li><a class="dropdown-item" href="{% url 'urbany' %}">Урбаны</a></li>
+                <li><a class="dropdown-item" href="{% url 'vidzy' %}">Видзы</a></li>
+                <li><a class="dropdown-item" href="{% url 'kotlovka' %}">Котловка</a></li>
+                <li><a class="dropdown-item" href="{% url 'losha' %}">Лоша</a></li>
+                <li><a class="dropdown-item" href="{% url 'kamenny_log' %}">Каменный Лог</a></li>
+                <li><a class="dropdown-item" href="{% url 'beniakoni' %}">Бенякони</a></li>
+                <li><a class="dropdown-item" href="{% url 'privalka' %}">Привалка</a></li>
+                <li><a class="dropdown-item" href="{% url 'bruzgi' %}">Брузги</a></li>
+                <li><a class="dropdown-item" href="{% url 'berestovitsa' %}">Берестовица</a></li>
+                <li><a class="dropdown-item" href="{% url 'peschatka' %}">Песчатка</a></li>
+                <li><a class="dropdown-item" href="{% url 'kozlovichi' %}">Козловичи</a></li>
+                <li><a class="dropdown-item" href="{% url 'brest' %}">Брест</a></li>
+                <li><a class="dropdown-item" href="{% url 'domachevo' %}">Домачево</a></li>
+                <li><a class="dropdown-item" href="{% url 'tomashovka' %}">Томашовка</a></li>
+                <li><a class="dropdown-item" href="{% url 'oltush' %}">Олтуш</a></li>
+                <li><a class="dropdown-item" href="{% url 'mokrany' %}">Мокраны</a></li>
+                <li><a class="dropdown-item" href="{% url 'mohro' %}">Мохро</a></li>
+                <li><a class="dropdown-item" href="{% url 'nevel' %}">Невель</a></li>
+                <li><a class="dropdown-item" href="{% url 'verhni_terebezhev' %}">Верхний Теребежов</a></li>
+                <li><a class="dropdown-item" href="{% url 'glushkevichi' %}">Глушкевичи</a></li>
+                <li><a class="dropdown-item" href="{% url 'novaya_rudnya' %}">Новая Рудня</a></li>
+                <li><a class="dropdown-item" href="{% url 'aleksandrovka' %}">Александровка</a></li>
+                <li><a class="dropdown-item" href="{% url 'komarin' %}">Комарин</a></li>
+                <li><a class="dropdown-item" href="{% url 'novaya_guta' %}">Новая Гута</a></li>
+                <li><a class="dropdown-item" href="{% url 'veselovka' %}">Веселовка</a></li>
+
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"></a></li>
+              </ul>
+            </li>
+
+	    	
+	      
+	    </div>
+	  </div>
+	</div>
+
+
+
+
+	
+
+
+{% endblock %}
