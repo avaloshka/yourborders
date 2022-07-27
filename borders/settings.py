@@ -32,9 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['belarusborders.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'django_celery_beat',
-    'whitenoise.runserver_nostatic'
 ]
 
 
@@ -140,4 +139,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
-WHITENOISE_USE_FINDERS = True
+
