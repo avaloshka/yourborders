@@ -1,1 +1,1 @@
-web: gunicorn borders.wsgi
+web: gunicorn borders.wsgi —-log-file -
