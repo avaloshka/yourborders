@@ -1,4 +1,4 @@
-from .secret_settings import SECRET_KEY
+# from .secret_settings import SECRET_KEY
 import django_heroku
 import dj_database_url
 from decouple import config
@@ -32,7 +32,7 @@ STATIC_ROOT = os.path.join(BASE_DIR/ 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = 'django-insecure-f3oc3@vftadt%45h_^ym-@y=x5f15edldk!mz!5se4kyj(2iy+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
